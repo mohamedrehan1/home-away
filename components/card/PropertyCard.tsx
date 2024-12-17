@@ -7,7 +7,7 @@ import { PropertyCardProps } from "@/utils/types";
 // import { formatCurrency } from "@/utils/format";
 
 function PropertyCard({ property }: { property: PropertyCardProps }) {
-  const { name, image, price } = property;
+  const { name, image } = property;
   const { country, id: propertyId, tagline } = property;
 
   return (
