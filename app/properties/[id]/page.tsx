@@ -13,8 +13,14 @@ import { Separator } from "@/components/ui/separator";
 import Amenities from "@/components/properties/Amenities";
 import DynamicMap from "@/components/properties/DynamicMap";
 
-async function PropertyDetailsPage({ params }: { params: { id: string } }) {
-  const property = await fetchPropertyDetails(params.id);
+async function PropertyDetailsPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
+  const property = await fetchPropertyDetails(id);
   if (!property) redirect("/");
   const { baths, bedrooms, beds, guests } = property;
   const details = { baths, bedrooms, beds, guests };
